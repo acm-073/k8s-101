@@ -1,4 +1,4 @@
-# Lab01
+# Lab 01
 ## Namespace
 ```bash
 # Check existing namespaces:
