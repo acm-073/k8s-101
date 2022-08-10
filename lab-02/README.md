@@ -16,7 +16,7 @@ $ kubectl -n lab01 get pod -o wide
 #    - ClusterIP des Services
 #    - Endpoints, hier stehen genau die Pod IPs drin (s.o.)
 #    - Label Selector
-$ kubectl -n lab01 get service nginx-deployment
+$ kubectl -n lab01 describe service nginx-deployment
 
 ```
 ## Kleiner Ausflug zu Kubernetes DNS

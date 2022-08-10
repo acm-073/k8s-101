@@ -32,7 +32,7 @@ $ kubectl apply -f ingress.yaml -n lab01
 
 # Ingress testen
 # external-ip s. oben
-curl -h "Host: example.com" <external-ip>/nginx
+curl -H "Host: example.com" <external-ip>/nginx
 ```
 
 ## Zweiter Service
