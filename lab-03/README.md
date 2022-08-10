@@ -38,5 +38,21 @@ curl -h "Host: example.com" <external-ip>/nginx
 ## Zweiter Service
 ```bash
 $ kubectl -n lab01 create deployment web --image=gcr.io/google-samples/hello-app:1.0
-$ kubectl -n lab01 expose deployment web --type=ClusterIP --port=80
+$ kubectl -n lab01 expose deployment web --type=ClusterIP --port=8080
+```
+Ingress Resource modifizieren: Füge zum Ingress eine zweite Path-Regel hinzu (`nano ingress.yaml`):
+```yaml
+      - path: /web
+        pathType: Prefix
+        backend:
+          service:
+            name: web
+            port:
+              number: 80
+```
+Danach muss der Ingress nochmal deployed werden:
+```bash
+$ kubectl apply -f ingress.yaml -n lab01
+# Test des neuen Services
+$ curl -h "Host: example.com" <external-ip>/web
 ```
