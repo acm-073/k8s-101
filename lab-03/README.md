@@ -26,3 +26,17 @@ $ curl <external-ip>
 ```
 
 ## Ingress Resource deployen
+```bash
+# im Verzeichnis lab-03
+$ kubectl apply -f ingress.yaml -n lab01
+
+# Ingress testen
+# external-ip s. oben
+curl -h "Host: example.com" <external-ip>/nginx
+```
+
+## Zweiter Service
+```bash
+$ kubectl -n lab01 create deployment web --image=gcr.io/google-samples/hello-app:1.0
+$ kubectl -n lab01 expose deployment web --type=ClusterIP --port=80
+```
