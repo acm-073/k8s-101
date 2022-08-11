@@ -48,11 +48,11 @@ Ingress Resource modifizieren: Füge zum Ingress eine zweite Path-Regel hinzu (`
           service:
             name: web
             port:
-              number: 80
+              number: 8080
 ```
 Danach muss der Ingress nochmal deployed werden:
 ```bash
 $ kubectl apply -f ingress.yaml -n lab01
 # Test des neuen Services
-$ curl -h "Host: example.com" <external-ip>/web
+$ curl -H "Host: example.com" <external-ip>/web
 ```
